@@ -17,6 +17,7 @@ Auth::routes(['register' => false]);
 
 Route::get('/home', Beranda::class)->middleware(['auth'])->name('home');
 Route::get('/user', User::class)->middleware(['auth'])->name('user');
+Route::get('/pengguna', User::class)->middleware(['auth'])->name('pengguna');
 Route::get('/laporan', Laporan::class)->middleware(['auth'])->name('laporan');
 Route::get('/produk', Produk::class)->middleware(['auth'])->name('produk');
 Route::get('/transaksi', Transaksi::class)->middleware(['auth'])->name('transaksi');

@@ -189,6 +189,12 @@
                         @if (Auth::user()->peran == 'admin')
                         <a href="{{ route('user') }}" wire:navigate
                             class="btn nav-button {{ request()->routeIs('user') ? 'active' : 'btn-outline-primary' }}">
+                            Users
+                        </a>
+                        @endif
+                        @if (Auth::user()->peran == 'admin')
+                        <a href="{{ route('pengguna') }}" wire:navigate
+                            class="btn nav-button {{ request()->routeIs('pengguna') ? 'active' : 'btn-outline-primary' }}">
                             Pengguna
                         </a>
                         @endif

@@ -2,9 +2,8 @@
     <!-- Hero Section -->
     <div class="row mb-4">
         <div class="col-12 text-center">
-            <h1 class="display-4 fw-bold text-primary">Selamat datang di POS Kasir</h1>
-            <p class="lead text-muted">Temukan solusi terbaik untuk setiap kebutuhan Anda di sini. Jelajahi produk dan layanan kami yang dapat mempercepat pencapaian tujuan Anda..</p>
-            <a href="#produk-unggulan" class="btn btn-primary btn-lg mt-3 btn-custom">Lihat Produk</a>
+            <h1 class="display-4 fw-bold text-primary">Selamat datang di Layanan ASQI</h1>
+            <p class="lead text-muted">Kami menyediakan layanan teknologi yang inovatif dan dapat disesuaikan untuk kebutuhan spesifik bisnis Anda...</p>
         </div>
     </div>
 
@@ -38,35 +37,62 @@
 
     <!-- Produk Unggulan -->
     <div id="produk-unggulan" class="container mt-5">
-        <h2 class="text-center fw-bold mb-4">Produk Unggulan Kami</h2>
-        <p class="text-center text-muted mb-5">Temukan produk terbaik pilihan kami, hanya untuk Anda.</p>
+        <h2 class="text-center fw-bold mb-4">Jabatan-jabatan Tinggi</h2>
+        <p class="text-center text-muted mb-5">Ini adalah beberapa jabatan tertinggi di ASQI</p>
         <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100 shadow border-0">
-                    <img src="https://via.placeholder.com/350" class="card-img-top" alt="Produk 1">
+            <!-- Orang 1-->
+            <div class="col-lg-12 mb-4">
+                <div class="card h-100 shadow border-0 rounded-3 w-50 mx-auto" style="max-width: 400px">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Produk 1</h5>
-                        <p class="card-text">Deskripsi singkat tentang produk ini. Fitur-fitur unggulan yang membuatnya layak untuk dicoba.</p>
+                        <h5 class="card-title">CEO (Chief Executive Officer)</h5>
+                        <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, sint eaque? Sint nihil voluptas labore temporibus magni, sunt eaque illo, provident vitae accusantium cum! Autem beatae vel porro esse voluptatem!</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://storage.googleapis.com/finansialku_media/wordpress_media/2021/12/ccacfe72-photo_2018-01-25_13-35-48-150x150.jpg" class="rounded-circle mt-3 mb-3" alt="Produk 1" style="width: 100px; height: 100px;">
+                            <div class="ms-3">
+                                <p class="mb-0">Nama</p>
+                                <p class="small text-muted">Pemimpin Perusahaan</p>
+                            </div>
+                        </div>
                         <a href="#" class="btn btn-primary mt-auto">Lihat Detail</a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100 shadow border-0">
-                    <img src="https://via.placeholder.com/350" class="card-img-top" alt="Produk 2">
+
+            <!-- Orang 2 -->
+            <div class="col-lg-6 col-md-6 mb-4"> <!-- Mengubah ukuran kolom agar card lebih besar -->
+                <div class="card h-100 shadow border-0 rounded-3">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Produk 2</h5>
-                        <p class="card-text">Deskripsi singkat tentang produk ini. Fitur-fitur unggulan yang membuatnya layak untuk dicoba.</p>
+                        <h5 class="card-title">CIO (Chief Information Officer)</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit sint aspernatur aut maxime impedit eius! Saepe tempora, provident corporis, esse alias maxime magni nesciunt fugit laboriosam doloremque expedita error consectetur!</p>
+                        <div class="d-flex align-items-center"> <!-- Flexbox untuk menyusun gambar dan teks secara horizontal -->
+                            <!-- Gambar -->
+                            <img src="https://storage.googleapis.com/finansialku_media/wordpress_media/2021/12/ccacfe72-photo_2018-01-25_13-35-48-150x150.jpg" class="rounded-circle mt-3 mb-3" alt="Produk 1" style="width: 100px; height: 100px;">
+                            <!-- Teks Nama dan Pekerjaan -->
+                            <div class="ms-3">
+                                <p class="mb-0">Nama</p> <!-- Nama orang -->
+                                <p class="small text-muted">Pengelolaan IT</p> <!-- Teks pekerjaan -->
+                            </div>
+                        </div>
                         <a href="#" class="btn btn-primary mt-auto">Lihat Detail</a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100 shadow border-0">
-                    <img src="https://via.placeholder.com/350" class="card-img-top" alt="Produk 3">
+
+            <!-- Orang 3 -->
+            <div class="col-lg-6 col-md-6 mb-4"> <!-- Mengubah ukuran kolom agar card lebih besar -->
+                <div class="card h-100 shadow border-0 rounded-3">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Produk 3</h5>
-                        <p class="card-text">Deskripsi singkat tentang produk ini. Fitur-fitur unggulan yang membuatnya layak untuk dicoba.</p>
+                        <h5 class="card-title">HRD (Human Resource Development)</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt et earum incidunt! Exercitationem esse ipsam qui iure odio magnam rerum, a eius quibusdam minus optio? Repellendus nam corporis ratione veniam!</p>
+                        <div class="d-flex align-items-center"> <!-- Flexbox untuk menyusun gambar dan teks secara horizontal -->
+                            <!-- Gambar -->
+                            <img src="https://storage.googleapis.com/finansialku_media/wordpress_media/2021/12/ccacfe72-photo_2018-01-25_13-35-48-150x150.jpg" class="rounded-circle mt-3 mb-3" alt="Produk 1" style="width: 100px; height: 100px;">
+                            <!-- Teks Nama dan Pekerjaan -->
+                            <div class="ms-3">
+                                <p class="mb-0">Nama</p> <!-- Nama orang -->
+                                <p class="small text-muted">Pengelolaan sumber daya manusia</p> <!-- Teks pekerjaan -->
+                            </div>
+                        </div>
                         <a href="#" class="btn btn-primary mt-auto">Lihat Detail</a>
                     </div>
                 </div>
@@ -113,37 +139,6 @@
                             <i class="fas fa-quote-left fa-2x text-primary opacity-25"></i>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Keunggulan Kami -->
-    <div class="row mb-5">
-        <div class="col-12 text-center">
-            <h2 class="fw-bold text-primary">Kenapa Memilih Kami?</h2>
-            <p class="text-muted">Berikut adalah beberapa alasan mengapa kami menjadi pilihan tepat.</p>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card shadow-lg rounded-lg border-0 transform-hover">
-                <div class="card-body text-center">
-                    <h5 class="card-title text-danger">Kualitas Terjamin</h5>
-                    <p class="card-text">Kami selalu menjaga kualitas produk dan layanan kami untuk kepuasan pelanggan.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card shadow-lg rounded-lg border-0 transform-hover">
-                <div class="card-body text-center">
-                    <h5 class="card-title text-warning">Pengiriman Cepat</h5>
-                    <p class="card-text">Proses pengiriman yang cepat dan tepat waktu untuk kenyamanan Anda.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card shadow-lg rounded-lg border-0 transform-hover">
-                <div class="card-body text-center">
-                    <h5 class="card-title text-success">Layanan Pelanggan 24/7</h5>
-                    <p class="card-text">Tim layanan pelanggan kami siap membantu Anda kapan saja dengan solusi yang tepat.</p>
                 </div>
             </div>
         </div>
@@ -207,11 +202,15 @@
         h2.text-primary {
             color: #0062cc;
         }
+
+        .container.mt-5 {
+            margin-bottom: 100px;
+        }
     </style>
 
     <!-- Footer -->
     <footer class="text-center py-4 bg-dark text-white">
-        <p>&copy; 2025 Turky. All rights reserved.</p>
+        <p>&copy; 2025 Turky & Shalwa. All rights reserved.</p>
         <div>
             <a href="#" class="text-white me-3">Privacy Policy</a>
             <a href="#" class="text-white me-3">Terms of Service</a>
