@@ -11,6 +11,7 @@ class Transaksi extends Component
     public $kode, $total, $status, $kembalian, $totalSemuaBelanja;
     public $bayar = 0;
     public $transaksiAktif;
+    public $transaksiSelesai = false; // Menambahkan properti untuk status transaksi selesai
 
     public function transaksiBaru()
     {
@@ -52,12 +53,14 @@ class Transaksi extends Component
             $this->reset('kode');
         }
     }
+
     public function updatedBayar()
     {
         if ($this->bayar > 0) {
             $this->kembalian = $this->bayar - $this->totalSemuaBelanja;
         }
     }
+
     public function hapusProduk($id)
     {
         $detil = DetilTransaksi::find($id);
@@ -68,17 +71,18 @@ class Transaksi extends Component
         }
         $detil->delete();
     }
+
     public function transaksiSelesai()
     {
         $this->transaksiAktif->total = $this->totalSemuaBelanja;
         $this->transaksiAktif->status = 'selesai';
         $this->transaksiAktif->save();
 
-        // Kirim event ke browser untuk tampilkan alert
-        $this->emit(
-            'transaksi-selesai',
-            'Transaksi berhasil'
-        );
+        // Mengubah status transaksi selesai
+        $this->transaksiSelesai = true;
+
+        // Emit event untuk frontend
+        $this->emit('transaksiSelesai', $this->transaksiAktif->kode);
 
         $this->reset();
     }
@@ -95,7 +99,8 @@ class Transaksi extends Component
         }
 
         return view('livewire.transaksi')->with([
-            'semuaProduk' => $semuaProduk
+            'semuaProduk' => $semuaProduk,
+            'transaksiSelesai' => $this->transaksiSelesai,  // Kirim status transaksi selesai ke frontend
         ]);
     }
 }

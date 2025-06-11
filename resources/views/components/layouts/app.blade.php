@@ -22,7 +22,7 @@
         /* Background Color */
         body {
 
-            background: linear-gradient(135deg, rgba(42, 159, 255, 0.64), rgba(195, 43, 255, 0.58));
+            background: linear-gradient(135deg, rgba(126, 197, 255, 0.64), rgba(7, 21, 224, 0.66));
             font-family: 'Nunito', sans-serif;
 
             /* Light gray background for a clean look */
@@ -189,6 +189,12 @@
                         @if (Auth::user()->peran == 'admin')
                         <a href="{{ route('user') }}" wire:navigate
                             class="btn nav-button {{ request()->routeIs('user') ? 'active' : 'btn-outline-primary' }}">
+                            Users
+                        </a>
+                        @endif
+                        @if (Auth::user()->peran == 'admin')
+                        <a href="{{ route('pengguna') }}" wire:navigate
+                            class="btn nav-button {{ request()->routeIs('pengguna') ? 'active' : 'btn-outline-primary' }}">
                             Pengguna
                         </a>
                         @endif
