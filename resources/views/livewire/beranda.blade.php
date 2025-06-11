@@ -1,10 +1,3 @@
-<style>
-    .div{
-        padding: 2;
-    }
-</style>
-
-
 <div class="container py-5">
 <!-- Hero Section -->
 <div class="row mb-4">
