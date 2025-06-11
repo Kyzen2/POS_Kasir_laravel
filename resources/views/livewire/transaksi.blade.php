@@ -112,19 +112,34 @@
         </div>
     </div>
     @endif
+
+    <!-- Menampilkan Barcode setelah transaksi selesai -->
+    @if ($transaksiSelesai)
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card border-primary shadow-sm rounded">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Barcode Transaksi</h4>
+                        <svg id="barcode"></svg>
+                        <p><strong>Invoice Kode: </strong>{{ $transaksiAktif->kode }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 </div>
-</div>
+
 <!-- SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>
 
 <script>
-    Livewire.on('transaksiSelesai', message => {
-        Swal.fire({
-            icon: 'success',
-            title: 'Sukses',
-            text: message,
-            timer: 2000,
-            showConfirmButton: false
+    // Emit event ketika transaksi selesai
+    Livewire.on('transaksiSelesai', (kodeTransaksi) => {
+        const barcode = document.getElementById('barcode');
+        JsBarcode(barcode, kodeTransaksi, {
+            format: "CODE128",
+            displayValue: true
         });
     });
 </script>

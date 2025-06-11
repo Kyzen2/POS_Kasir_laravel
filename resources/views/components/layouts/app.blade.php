@@ -22,7 +22,7 @@
         /* Background Color */
         body {
 
-            background: linear-gradient(135deg, rgba(42, 159, 255, 0.64), rgba(195, 43, 255, 0.58));
+            background: linear-gradient(135deg, rgba(126, 197, 255, 0.64), rgba(7, 21, 224, 0.66));
             font-family: 'Nunito', sans-serif;
 
             /* Light gray background for a clean look */
