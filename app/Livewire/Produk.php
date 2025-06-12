@@ -19,6 +19,7 @@ class Produk extends Component
     public $ket;
     public $produkTerpilih;
     public $daftarInstruktur = [];
+    public $namaInstruktur;
 
 
 
@@ -116,5 +117,7 @@ class Produk extends Component
     public function mount()
     {
         $this->daftarInstruktur = \App\Models\Pengguna::where('jabatan', 'pegawai')->get();
+        $this->namaInstruktur = \App\Models\Pengguna::find($this->instruktur)?->nama;
+
     }
 }

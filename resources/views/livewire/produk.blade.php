@@ -79,7 +79,7 @@
                             <select class="form-control" wire:model="instruktur">
                                 <option value="">Pilih Pegawai</option>
                                 @foreach($daftarInstruktur as $pegawai)
-                                    <option value="{{ $pegawai->id }}">{{ $pegawai->nama }}</option>
+                                    <option value="{{ $pegawai->nama }}">{{ $pegawai->nama }}</option>
                                 @endforeach
                             </select>
                             @error('instruktur')
