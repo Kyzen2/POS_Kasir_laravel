@@ -38,7 +38,7 @@ class Pengguna extends Component
     {
         $this->validate([
             'nama' => 'required',
-            'nis' => ['required','unique:penggunas,nis,' . $this->penggunaTerpilih->id],
+            'nis' => ['required','unique:pengguna,nis,' . $this->penggunaTerpilih->id],
             'jabatan' => 'required',
         ],[
             'nama.required' => 'Nama tidak boleh kosong',

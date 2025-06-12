@@ -32,8 +32,8 @@
 
         /* Navbar Styling */
         .navbar {
-            background-color: rgba(141, 141, 141, 0.62);
-            /* Deep blue for a professional look */
+            background-color: orange
+                /* Deep blue for a professional look */
         }
 
         .navbar-brand {
@@ -122,8 +122,8 @@
         }
 
         /* Dropdown Menu */
-        .dropdown-menu {
-            background-color: #007bff;
+        .dropdown-menu {    
+            background-color: orange;
             /* Consistent with navbar color */
             border-radius: 10px;
         }
@@ -133,7 +133,7 @@
         }
 
         .dropdown-item:hover {
-            background-color: #28a745 !important;
+            background-color:  rgb(182, 109, 0) !important;
             color: white;
         }
     </style>

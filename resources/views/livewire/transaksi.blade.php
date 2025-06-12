@@ -5,8 +5,9 @@
             <div class="col-12 d-flex flex-wrap gap-2 justify-content-center">
                 @if (!$transaksiAktif)
                 <button wire:click='transaksiBaru'
-                    class="col-lg-4 col-md-6 mb-4 btn {{ !$transaksiAktif ? 'btn-primary' : 'btn-outline-primary' }} mx-2 py-2 px-4 rounded-pill shadow-sm btn-custom">
-                    <i class="bi bi-cart-plus"></i> Transaksi Baru
+                    class="col-lg-4 col-md-6 mb-4 btn {{ !$transaksiAktif ? 'btn-warning' : 'btn-outline-warning' }} mx-2 py-2 px-4 rounded-pill shadow-sm btn-custom">
+                    <i class="bi bi-cart-plus"></i>
+                    <span class="text-custom-orange-baru">Transaksi Baru</span>
                 </button>
                 @else
                 <button wire:click='batalTransaksi'
@@ -15,25 +16,52 @@
                 </button>
                 @endif
                 <button wire:loading
-                    class="col-lg-4 col-md-6 mb-4 btn btn-info mx-2 py-2 px-4 rounded-pill shadow-sm">
-                    <i class="fas fa-spinner fa-spin"></i> Loading...
+                    class="col-lg-4 col-md-6 mb-4 btn btn-custom-orange mx-2 py-2 px-4 rounded-pill shadow-sm">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <span class="text-custom-orange-loading">Loading...</span>
                 </button>
             </div>
         </div>
+
+        <!-- CSS Transaksi -->
+        <style>
+            .text-custom-orange-baru {
+                color: rgb(146, 54, 0)
+            }
+            .text-custom-orange-loading {
+                color: rgb(107, 43, 0)
+            }
+
+            .btn-custom-orange {
+                background-color: rgb(255, 94, 0);
+            }
+        </style>
+        <!-- --- -->
+        <!-- CSS untuk card Transaksi -->
+        <style>
+            .outline-transaksi {
+                border: 2px solid rgb(255, 94, 0);
+            }
+
+            .bg-semuauser {
+                background-color: rgb(255, 94, 0)
+            }
+        </style>
+        <!-- --- -->
 
         <!-- Menampilkan Transaksi Aktif -->
         @if ($transaksiAktif)
         <div class="row mt-4">
             <!-- Bagian Kiri (Daftar Produk) -->
             <div class="col-12 col-lg-8 mb-4">
-                <div class="card border-primary shadow-sm rounded">
+                <div class="card outline-transaksi shadow-sm rounded">
                     <div class="card-body">
                         <h4 class="card-title">No Invoice: <strong>{{ $transaksiAktif->kode }}</strong></h4>
                         <input type="text" class="form-control mb-3" placeholder="Masukkan kode invoice"
                             wire:model.live='kode'>
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover">
-                                <thead class="table-primary text-center">
+                                <thead class="table-warning text-center">
                                     <tr>
                                         <th>No</th>
                                         <th>Nama Barang</th>
@@ -68,7 +96,7 @@
             <!-- Bagian Kanan (Total, Bayar, Kembalian) -->
             <div class="col-12 col-lg-4">
                 <!-- Total Biaya -->
-                <div class="card border-primary shadow-sm rounded mb-3">
+                <div class="card outline-transaksi shadow-sm rounded mb-3">
                     <div class="card-body">
                         <h4 class="card-title">Total Biaya</h4>
                         <div class="d-flex justify-content-between">
@@ -79,7 +107,7 @@
                 </div>
 
                 <!-- Bayar -->
-                <div class="card border-primary shadow-sm rounded mb-3">
+                <div class="card outline-transaksi shadow-sm rounded mb-3">
                     <div class="card-body">
                         <h4 class="card-title">Bayar</h4>
                         <input type="number" class="form-control" placeholder="Masukkan jumlah bayar" wire:model.live='bayar'>
@@ -87,7 +115,7 @@
                 </div>
 
                 <!-- Kembalian -->
-                <div class="card border-primary shadow-sm rounded mb-3">
+                <div class="card outline-transaksi shadow-sm rounded mb-3">
                     <div class="card-body">
                         <h4 class="card-title">Kembalian</h4>
                         <div class="d-flex justify-content-between">
@@ -115,17 +143,17 @@
 
     <!-- Menampilkan Barcode setelah transaksi selesai -->
     @if ($transaksiSelesai)
-        <div class="row mt-4">
-            <div class="col-12">
-                <div class="card border-primary shadow-sm rounded">
-                    <div class="card-body text-center">
-                        <h4 class="card-title">Barcode Transaksi</h4>
-                        <svg id="barcode"></svg>
-                        <p><strong>Invoice Kode: </strong>{{ $transaksiAktif->kode }}</p>
-                    </div>
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card border-primary shadow-sm rounded">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Barcode Transaksi</h4>
+                    <svg id="barcode"></svg>
+                    <p><strong>Invoice Kode: </strong>{{ $transaksiAktif->kode }}</p>
                 </div>
             </div>
         </div>
+    </div>
     @endif
 </div>
 

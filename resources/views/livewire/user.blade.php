@@ -2,25 +2,62 @@
     <div class="row my-4">
         <div class="col-12 text-center">
             <!-- Tombol navigasi -->
-            <button wire:click="pilihMenu('lihat')" 
-                class="col-lg-4 col-md-6 mb-4 btn {{ $pilihanMenu == 'lihat' ? 'btn-primary' : 'btn-outline-primary' }} mx-2 py-2 px-4 rounded-pill shadow-sm btn-custom">
-                <i class="fas fa-box-open"></i> Semua User
+            <button wire:click="pilihMenu('lihat')"
+                class="col-lg-4 col-md-6 mb-4 btn {{ $pilihanMenu == 'lihat' ? 'btn-warning' : 'btn-outline-warning' }} mx-2 py-2 px-4 rounded-pill shadow-sm">
+                <i class="fas fa-box-open"></i>
+                <span class="text-custom-orange-semuauser">Semua User</span>
             </button>
-            <button wire:click="pilihMenu('tambah')" 
-                class="col-lg-4 col-md-6 mb-4 btn {{ $pilihanMenu == 'tambah' ? 'btn-primary' : 'btn-outline-primary' }} mx-2 py-2 px-4 rounded-pill shadow-sm btn-custom">
-                <i class="fas fa-plus-circle"></i> Tambah User
+
+            <button wire:click="pilihMenu('tambah')"
+                class="col-lg-4 col-md-6 mb-4 btn {{ $pilihanMenu == 'tambah' ? 'btn-warning' : 'btn-outline-warning' }} mx-2 py-2 px-4 rounded-pill shadow-sm">
+                <i class="fas fa-plus-circle"></i>
+                <span class="text-custom-orange-tambahuser">Tambah User</span>
             </button>
-            <button wire:loading class="col-lg-4 col-md-6 mb-4 btn btn-info mx-2 py-2 px-4 rounded-pill shadow-sm">
-                <i class="fas fa-spinner fa-spin"></i> Loading...
+
+            <button wire:loading
+                class="col-lg-4 col-md-6 mb-4 btn btn-custom-orange mx-2 py-2 px-4 rounded-pill shadow-sm">
+                <i class="fas fa-spinner fa-spin"></i>
+                <span class="text-custom-orange-loading">Loading...</span>
             </button>
+
         </div>
     </div>
+    <!-- CSS Tombol Navigasi -->
+    <style>
+        .text-custom-orange-tambahuser {
+            color: rgb(146, 54, 0)
+        }
+
+        .text-custom-orange-semuauser {
+            color: rgb(146, 54, 0)
+        }
+
+        .text-custom-orange-loading {
+            color: rgb(107, 43, 0)
+        }
+
+        .btn-custom-orange {
+            background-color: rgb(255, 94, 0);
+        }
+    </style>
+    <!-- --- -->
+
+    <!-- CSS untuk card semua user -->
+    <style>
+        .outline-semuauser {
+            border: 2px solid rgb(255, 94, 0);
+        }
+        .bg-semuauser {
+            background-color: rgb(255, 94, 0)
+        }
+    </style>
+    <!-- --- -->
 
     <div class="row">
         <div class="col-12">
             @if ($pilihanMenu == 'lihat')
-            <div class="card border-primary shadow-sm mb-4">
-                <div class="card-header bg-primary text-white">
+            <div class="card outline-semuauser shadow-sm mb-4">
+                <div class="card-header bg-semuauser text-white">
                     Semua User
                 </div>
                 <div class="card-body">
@@ -44,11 +81,11 @@
                                     <td>{{ $pengguna->peran }}</td>
                                     <td>
                                         <div class="d-flex gap-3 flex-wrap justify-content-center">
-                                            <button wire:click="pilihEdit({{ $pengguna->id }})" 
+                                            <button wire:click="pilihEdit({{ $pengguna->id }})"
                                                 class="btn col-lg-3 col-md-4 btn-sm btn-outline-warning mb-2">
                                                 <i class="fas fa-pencil-alt"></i> Edit
                                             </button>
-                                            <button wire:click="pilihHapus({{ $pengguna->id }})" 
+                                            <button wire:click="pilihHapus({{ $pengguna->id }})"
                                                 class="btn col-lg-3 col-md-4 btn-sm btn-outline-danger mb-2">
                                                 <i class="fas fa-trash-alt"></i> Hapus
                                             </button>
@@ -62,8 +99,8 @@
                 </div>
             </div>
             @elseif ($pilihanMenu == 'tambah')
-            <div class="card border-primary shadow-sm mb-4">
-                <div class="card-header bg-primary text-white">
+            <div class="card outline-semuauser shadow-sm mb-4">
+                <div class="card-header bg-semuauser text-white">
                     Tambah User
                 </div>
                 <div class="card-body">

@@ -2,7 +2,7 @@
     <!-- Hero Section -->
     <div class="row mb-4">
         <div class="col-12 text-center">
-            <h1 class="display-4 fw-bold text-primary">Selamat datang di Layanan ASQI</h1>
+            <h1 class="display-4 fw-bold" style="color: #e74a3b;">Selamat datang di Layanan ASQI</h1>
             <p class="lead text-muted">Kami menyediakan layanan teknologi yang inovatif dan dapat disesuaikan untuk kebutuhan spesifik bisnis Anda...</p>
         </div>
     </div>
