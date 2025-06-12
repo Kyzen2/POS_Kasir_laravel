@@ -14,10 +14,11 @@ return new class extends Migration
     {
         Schema::create('produks', function (Blueprint $table) {
             $table->id();
-            $table->string('kode');
-            $table->string('nama');
-            $table->integer('harga')->unsigned();
-            $table->integer('stok')->default(1)->unsigned();
+            $table->string('instruktur')->nullable();
+            $table->string('sekolah')->nullable();
+            $table->string('pembimbing')->nullable();
+            $table->string('siswa')->nullable();
+            $table->string('ket')->nullable();
             $table->timestamps();
         });
     }

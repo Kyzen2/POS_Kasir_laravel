@@ -12,53 +12,48 @@ class Produk extends Component
 {
     use WithFileUploads;
     public $pilihanMenu = "lihat";
-    public $nama;
-    public $kode;
-    public $harga;
-    public $stok;
+    public $instruktur;
+    public $sekolah;
+    public $pembimbing;
+    public $siswa;
+    public $ket;
     public $produkTerpilih;
-    public $fileExcel;
+    public $daftarInstruktur = [];
 
-    public function imporExcel()
-    {
-        $this->validate([
-            'fileExcel' => 'required|mimes:xlsx,xls,csv|max:10240', // maksimal 10MB
-        ]);
 
-        // Lanjutkan dengan proses import
-        Excel::import(new imporProduk, $this->fileExcel);
-        $this->reset();
-    }
 
     public function pilihEdit($id)
     {
         $this->produkTerpilih = ModelProduk::findOrFail($id);
-        $this->nama = $this->produkTerpilih->nama;
-        $this->kode = $this->produkTerpilih->kode;
-        $this->harga = $this->produkTerpilih->harga;
-        $this->stok = $this->produkTerpilih->stok;
+        $this->instruktur = $this->produkTerpilih->instruktur;
+        $this->sekolah = $this->produkTerpilih->sekolah;
+        $this->pembimbing = $this->produkTerpilih->pembimbing;
+        $this->siswa = $this->produkTerpilih->siswa;
+        $this->ket = $this->produkTerpilih->ket;
         $this->pilihanMenu = "edit";
     }
     public function simpanEdit()
     {
         $this->validate([
-            'nama' => 'required',
-            'kode' => ['required', 'unique:produks,kode,'.$this->produkTerpilih->id],
-            'harga' => 'required',
-            'stok' => 'required'
+            'instruktur' => ['required', 'unique:produks,kode,'.$this->produkTerpilih->id],
+            'sekolah' => 'required',
+            'pembimbing' => 'required',
+            'siswa' => 'required',
+            'ket' => 'required'
         ], [
-            'nama.required' => 'Nama tidak boleh kosong',
-            'kode.required' => 'Kode tidak boleh kosong',
-            'kode.unique' => 'Kode sudah terdaftar',
-            'harga.required' => 'Harga tidak boleh kosong',
-            'stok.required' => 'Stok tidak boleh kosong'
+            'instruktur.required' => 'Nama Instruktur tidak boleh kosong',
+            'sekolah.required' => 'Nama Sekolah tidak boleh kosong',
+            'pembimbing.required' => 'Nama Pembimbing tidak boleh kosong',
+            'siswa.required' => 'Jumlah Siswa tidak boleh kosong',
+            'ket.required' => 'Keterangan tidak boleh kosong'
         ]);
 
         $simpan = $this->produkTerpilih;
-        $simpan->nama = $this->nama;
-        $simpan->kode = $this->kode;
-        $simpan->stok = $this->stok;
-        $simpan->harga = $this->harga;
+        $simpan->instruktur = $this->instruktur;
+        $simpan->sekolah = $this->sekolah;
+        $simpan->pembimbing = $this->pembimbing;
+        $simpan->siswa = $this->siswa;
+        $simpan->ket = $this->ket;
         $simpan->save();
 
         $this->reset();
@@ -83,26 +78,28 @@ class Produk extends Component
     public function simpan()
     {
         $this->validate([
-            'nama' => 'required',
-            'kode' => ['required', 'unique:produks,kode'],
-            'harga' => 'required',
-            'stok' => 'required'
+            'instruktur' => 'required',
+            'sekolah' => 'required',
+            'pembimbing' => 'required',
+            'siswa' => 'required',
+            'ket' => 'required'
         ], [
-            'nama.required' => 'Nama tidak boleh kosong',
-            'kode.required' => 'Kode tidak boleh kosong',
-            'kode.unique' => 'Kode sudah terdaftar',
-            'harga.required' => 'Harga tidak boleh kosong',
-            'stok.required' => 'Stok tidak boleh kosong'
+            'instruktur.required' => 'Nama Instruktur tidak boleh kosong',
+            'sekolah.required' => 'Nama Sekolah tidak boleh kosong',
+            'pembimbing.required' => 'Nama Pembimbing tidak boleh kosong',
+            'siswa.required' => 'Nama Siswa tidak boleh kosong',
+            'ket.required' => 'Keterangan tidak boleh kosong'
         ]);
 
         $simpan = new ModelProduk();
-        $simpan->nama = $this->nama;
-        $simpan->kode = $this->kode;
-        $simpan->stok = $this->stok;
-        $simpan->harga = $this->harga;
+        $simpan->instruktur = $this->instruktur;
+        $simpan->sekolah = $this->sekolah;
+        $simpan->pembimbing = $this->pembimbing;
+        $simpan->siswa = $this->siswa;
+        $simpan->ket = $this->ket;
         $simpan->save();
 
-        $this->reset(['nama', 'kode', 'stok', 'harga']);
+        $this->reset(['instruktur', 'sekolah', 'pembimbing', 'siswa', 'ket']);
         $this->pilihanMenu = "lihat";
         session()->flash('pesan', 'Data berhasil disimpan');
     }
@@ -115,5 +112,9 @@ class Produk extends Component
         return view('livewire.produk')->with([
             'semuaProduk' => ModelProduk::all()
         ]);
+    }
+    public function mount()
+    {
+        $this->daftarInstruktur = \App\Models\Pengguna::where('jabatan', 'pegawai')->get();
     }
 }

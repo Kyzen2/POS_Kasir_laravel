@@ -211,7 +211,7 @@
                         @endif
                         <a href="{{ route('produk') }}" wire:navigate
                             class="btn nav-button {{ request()->routeIs('produk') ? 'active' : '' }}">
-                            Produk
+                            Pelatihan
                         </a>
 
                         <a href="{{ route('transaksi') }}" wire:navigate
