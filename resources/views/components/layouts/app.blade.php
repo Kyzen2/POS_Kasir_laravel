@@ -22,7 +22,7 @@
         /* Background Color */
         body {
 
-            background: linear-gradient(135deg, rgba(126, 197, 255, 0.64), rgba(7, 21, 224, 0.66));
+            /* background: linear-gradient(135deg, rgba(238, 255, 0, 0.78), rgba(255, 102, 0, 0.91)); */
             font-family: 'Nunito', sans-serif;
 
             /* Light gray background for a clean look */
@@ -32,7 +32,7 @@
 
         /* Navbar Styling */
         .navbar {
-            background-color: #007bff;
+            background-color: rgba(141, 141, 141, 0.62);
             /* Deep blue for a professional look */
         }
 
@@ -50,28 +50,39 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             color: #ffffff;
+            border: none;
+            /* Remove default border */
         }
 
         /* Hover Effects */
         .nav-button:hover {
             transform: translateY(-3px);
-            background-color: #007bff;
+            background-color: rgb(231, 93, 0);
             /* Green for hover effect */
             color: white !important;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            border-color: rgb(231, 93, 0);
         }
 
         /* Active State */
         .nav-button.active {
-            background-color: rgb(43, 116, 250) !important;
+            background-color: rgb(255, 102, 0) !important;
             /* Green active button */
             color: white !important;
-            border-color: #007bff !important;
+            border-color: rgb(255, 102, 0) !important;
+        }
+
+        /* Focus Outline - When Button is Pressed */
+        .nav-button:focus {
+            outline: 3px solid orange;
+            /* Add orange outline */
+            outline-offset: 2px;
+            /* Slightly offset the outline */
         }
 
         /* Card Styles */
         .nav-card {
-            background: linear-gradient(135deg, rgba(17, 0, 255, 0.7), rgba(0, 90, 116, 0.7));
+            background: linear-gradient(to bottom right, #e74a3b, #f6c23e);
             border-radius: 15px;
             box-shadow: 0 10px 10px rgba(0, 0, 0, 0.23);
             padding: 20px;
@@ -88,7 +99,7 @@
             background-color: #fff;
         }
 
-        /* Responsif Design */
+        /* Responsive Design */
         @media (max-width: 767px) {
             .nav-card {
                 text-align: center;
@@ -183,34 +194,42 @@
                 <div class="row mb-3">
                     <div class="col-12 nav-card">
                         <a href="{{ route('home') }}" wire:navigate
-                            class="btn nav-button {{ request()->routeIs('home') ? 'active' : 'btn-outline-primary' }}">
+                            class="btn nav-button {{ request()->routeIs('home') ? 'active' : '' }}">
                             Beranda
                         </a>
                         @if (Auth::user()->peran == 'admin')
                         <a href="{{ route('user') }}" wire:navigate
-                            class="btn nav-button {{ request()->routeIs('user') ? 'active' : 'btn-outline-primary' }}">
+                            class="btn nav-button {{ request()->routeIs('user') ? 'active' : '' }}">
                             Users
                         </a>
                         @endif
+<<<<<<< HEAD
                        @if (Auth::user()->peran == 'admin')
                             <a href="{{ route('pengguna') }}" wire:navigate
                                 class="btn nav-button {{ request()->routeIs('pengguna') ? 'active' : 'btn-outline-primary' }}">
                                 Karyawan
                             </a>
+=======
+                        @if (Auth::user()->peran == 'admin')
+                        <a href="{{ route('pengguna') }}" wire:navigate
+                            class="btn nav-button {{ request()->routeIs('pengguna') ? 'active' : '' }}">
+                            Pengguna
+                        </a>
+>>>>>>> 2c49f8028572055126da497731b826eb95f4e4da
                         @endif
 
                         <a href="{{ route('produk') }}" wire:navigate
-                            class="btn nav-button {{ request()->routeIs('produk') ? 'active' : 'btn-outline-primary' }}">
+                            class="btn nav-button {{ request()->routeIs('produk') ? 'active' : '' }}">
                             Produk
                         </a>
 
                         <a href="{{ route('transaksi') }}" wire:navigate
-                            class="btn nav-button {{ request()->routeIs('transaksi') ? 'active' : 'btn-outline-primary' }}">
+                            class="btn nav-button {{ request()->routeIs('transaksi') ? 'active' : '' }}">
                             Transaksi
                         </a>
 
                         <a href="{{ route('laporan') }}" wire:navigate
-                            class="btn nav-button {{ request()->routeIs('laporan') ? 'active' : 'btn-outline-primary' }}">
+                            class="btn nav-button {{ request()->routeIs('laporan') ? 'active' : '' }}">
                             Laporan
                         </a>
                     </div>
