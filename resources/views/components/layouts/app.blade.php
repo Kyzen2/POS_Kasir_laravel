@@ -192,12 +192,13 @@
                             Users
                         </a>
                         @endif
-                        @if (Auth::user()->peran == 'admin')
-                        <a href="{{ route('pengguna') }}" wire:navigate
-                            class="btn nav-button {{ request()->routeIs('pengguna') ? 'active' : 'btn-outline-primary' }}">
-                            Pengguna
-                        </a>
+                       @if (Auth::user()->peran == 'admin')
+                            <a href="{{ route('pengguna') }}" wire:navigate
+                                class="btn nav-button {{ request()->routeIs('pengguna') ? 'active' : 'btn-outline-primary' }}">
+                                Karyawan
+                            </a>
                         @endif
+
                         <a href="{{ route('produk') }}" wire:navigate
                             class="btn nav-button {{ request()->routeIs('produk') ? 'active' : 'btn-outline-primary' }}">
                             Produk

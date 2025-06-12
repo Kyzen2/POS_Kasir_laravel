@@ -4,11 +4,11 @@
             <!-- Tombol navigasi -->
             <button wire:click="pilihMenu('lihat')" 
                 class="col-lg-4 col-md-6 mb-4 btn {{ $pilihanMenu == 'lihat' ? 'btn-primary' : 'btn-outline-primary' }} mx-2 py-2 px-4 rounded-pill shadow-sm btn-custom">
-                <i class="fas fa-box-open"></i> Semua Pengguna
+                <i class="fas fa-box-open"></i> Semua User
             </button>
             <button wire:click="pilihMenu('tambah')" 
                 class="col-lg-4 col-md-6 mb-4 btn {{ $pilihanMenu == 'tambah' ? 'btn-primary' : 'btn-outline-primary' }} mx-2 py-2 px-4 rounded-pill shadow-sm btn-custom">
-                <i class="fas fa-plus-circle"></i> Tambah Pengguna
+                <i class="fas fa-plus-circle"></i> Tambah User
             </button>
             <button wire:loading class="col-lg-4 col-md-6 mb-4 btn btn-info mx-2 py-2 px-4 rounded-pill shadow-sm">
                 <i class="fas fa-spinner fa-spin"></i> Loading...
@@ -21,7 +21,7 @@
             @if ($pilihanMenu == 'lihat')
             <div class="card border-primary shadow-sm mb-4">
                 <div class="card-header bg-primary text-white">
-                    Semua Pengguna
+                    Semua User
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -64,7 +64,7 @@
             @elseif ($pilihanMenu == 'tambah')
             <div class="card border-primary shadow-sm mb-4">
                 <div class="card-header bg-primary text-white">
-                    Tambah Pengguna
+                    Tambah User
                 </div>
                 <div class="card-body">
                     <form action="" wire:submit="simpan">
