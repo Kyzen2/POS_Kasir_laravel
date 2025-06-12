@@ -4,15 +4,11 @@
             <!-- Tombol navigasi -->
             <button wire:click="pilihMenu('lihat')" 
                 class="col-lg-4 col-md-6 mb-4 btn {{ $pilihanMenu == 'lihat' ? 'btn-primary' : 'btn-outline-primary' }} mx-2 py-2 px-4 rounded-pill shadow-sm btn-custom">
-                <i class="fas fa-box-open"></i> Semua Produk
+                <i class="fas fa-box-open"></i> Lihat Pelatihan
             </button>
             <button wire:click="pilihMenu('tambah')" 
                 class="col-lg-4 col-md-6 mb-4 btn {{ $pilihanMenu == 'tambah' ? 'btn-primary' : 'btn-outline-primary' }} mx-2 py-2 px-4 rounded-pill shadow-sm btn-custom">
-                <i class="fas fa-plus-circle"></i> Tambah Produk
-            </button>
-            <button wire:click="pilihMenu('excel')" 
-                class="col-lg-4 col-md-6 mb-4 btn {{ $pilihanMenu == 'excel' ? 'btn-primary' : 'btn-outline-primary' }} mx-2 py-2 px-4 rounded-pill shadow-sm btn-custom">
-                <i class="fas fa-file-import"></i> Import Produk
+                <i class="fas fa-plus-circle"></i> Tambah Pelatihan
             </button>
             <button wire:loading class="col-lg-4 col-md-6 mb-4 btn btn-info mx-2 py-2 px-4 rounded-pill shadow-sm">
                 <i class="fas fa-spinner fa-spin"></i> Loading...
@@ -25,7 +21,7 @@
             @if ($pilihanMenu == 'lihat')
             <div class="card border-primary shadow-sm mb-4">
                 <div class="card-header bg-primary text-white">
-                    Semua Produk
+                    Semua Pelatihan
                 </div>
                 <div class="card-body">
                     <!-- Tambahkan class table-responsive di sini -->
@@ -34,10 +30,11 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th>No</th>
-                                    <th>Kode</th>
-                                    <th>Nama</th>
-                                    <th>Harga</th>
-                                    <th>Stok</th>
+                                    <th>Nama Instruktur</th>
+                                    <th>Nama Sekolah</th>
+                                    <th>Nama Pembimbing</th>
+                                    <th>Jumlah Siswa</th>
+                                    <th>Keterangan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -45,10 +42,11 @@
                                 @foreach ($semuaProduk as $produk)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $produk->kode }}</td>
-                                    <td>{{ $produk->nama }}</td>
-                                    <td class="text-end">Rp. {{ number_format($produk->harga, 0, ',', '.') }}</td>
-                                    <td class="text-center">{{ $produk->stok }}</td>
+                                    <td>{{ $produk->instruktur }}</td>
+                                    <td>{{ $produk->sekolah }}</td>
+                                    <td>{{$produk->pembimbing}}</td>
+                                    <td>{{ $produk->siswa }}</td>
+                                    <td>{{ $produk->ket }}</td>
                                     <td>
                                         <div class="d-flex gap-3 flex-wrap justify-content-center">
                                             <button wire:click="pilihEdit({{ $produk->id }})" 
@@ -71,19 +69,58 @@
             @elseif(in_array($pilihanMenu, ['tambah', 'edit']))
             <div class="card border-primary shadow-sm mb-4">
                 <div class="card-header bg-primary text-white">
-                    {{ $pilihanMenu == 'tambah' ? '➕ Tambah Produk' : '✏️ Edit Produk' }}
+                    {{ $pilihanMenu == 'tambah' ? '➕ Tambah Pelatihan' : '✏️ Edit Produk' }}
                 </div>
                 <div class="card-body">
-                    <form wire:submit.prevent="{{ $pilihanMenu == 'tambah' ? 'simpan' : 'simpanEdit' }}">
-                        @foreach (['nama' => 'Nama', 'kode' => 'Kode / Barcode', 'harga' => 'Harga', 'stok' => 'Stok'] as $field => $label)
+                     <form wire:submit.prevent="simpan">
+
                         <div class="mb-3">
-                            <label class="form-label">{{ $label }}</label>
-                            <input type="{{ $field === 'harga' || $field === 'stok' ? 'number' : 'text' }}"
-                                class="form-control" wire:model="{{ $field }}">
-                            @error($field) <small class="text-danger">{{ $message }}</small> @enderror
+                            <label for="" class="form-label">Instruktur</label>
+                            <select class="form-control" wire:model="instruktur">
+                                <option value="">Pilih Pegawai</option>
+                                @foreach($daftarInstruktur as $pegawai)
+                                    <option value="{{ $pegawai->nama }}">{{ $pegawai->nama }}</option>
+                                @endforeach
+                            </select>
+                            @error('instruktur')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
-                        @endforeach
-                        <button type="submit" class="btn btn-success mt-2 w-100">
+
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Nama Sekolah</label>
+                            <input type="text" class="form-control" wire:model="sekolah" />
+                            @error('sekolah')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Nama Pembimbing</label>
+                            <input type="text" class="form-control" wire:model="pembimbing" />
+                            @error('pembimbing')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Jumlah Siswa</label>
+                            <input type="text" class="form-control" wire:model="siswa" />
+                            @error('siswa')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="" class="form-label">Keterangan</label>
+                            <input type="text" class="form-control" wire:model="ket" />
+                            @error('ket')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <button type="submit" class="btn btn-success rounded-pill px-4 py-2 mt-3">
                             <i class="fas fa-save"></i> Simpan
                         </button>
                     </form>
@@ -95,10 +132,9 @@
                     ⚠️ Konfirmasi Hapus
                 </div>
                 <div class="card-body">
-                    <p>Anda yakin ingin menghapus produk ini?</p>
+                    <p>Anda yakin ingin menghapus pelatihan ini?</p>
                     <ul>
-                        <li><strong>Nama:</strong> {{ $produkTerpilih->nama }}</li>
-                        <li><strong>Kode:</strong> {{ $produkTerpilih->kode }}</li>
+                        <li><strong>Atas nama Instruktur:</strong> {{ $produkTerpilih->instruktur }}</li>
                     </ul>
                     <div class="d-flex gap-3 justify-content-center">
                         <button class="btn col-lg-3 col-md-4 btn-sm btn-danger" wire:click='hapus'>
@@ -112,18 +148,6 @@
             </div>
             @elseif($pilihanMenu == 'excel')
             <div class="card border-success shadow-sm mb-4">
-                <div class="card-header bg-success text-white">
-                    📥 Import Produk (Excel)
-                </div>
-                <div class="card-body">
-                    <form wire:submit.prevent='imporExcel'>
-                        <input type="file" class="form-control" wire:model="fileExcel" />
-                        @error('fileExcel') <small class="text-danger">{{ $message }}</small> @enderror
-                        <button class="btn btn-outline-success mt-3 w-100" type="submit">
-                            <i class="fas fa-upload"></i> Kirim
-                        </button>
-                    </form>
-                </div>
             </div>
             @endif
         </div>
