@@ -111,8 +111,12 @@
                     {{ $pilihanMenu == 'tambah' ? '➕ Tambah Pelatihan' : '✏️ Edit Produk' }}
                 </div>
                 <div class="card-body">
+<<<<<<< HEAD
                     <form wire:submit.prevent="simpan">
 
+=======
+                    <form wire:submit.prevent="{{ $pilihanMenu == 'tambah' ? 'simpan' : 'simpanEdit' }}">
+>>>>>>> 3fe8eed1094be107c33c4ba6fb119374f3b2e2aa
                         <div class="mb-3">
                             <label for="" class="form-label">Instruktur</label>
                             <select class="form-control border-warning" wire:model="instruktur">
@@ -125,9 +129,9 @@
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-
-
+                        @foreach (['sekolah' => 'Nama Sekolah', 'pembimbing' => 'Nama Pembimbing', 'siswa' => 'Jumlah Siswa', 'ket' => 'Keterangan'] as $field => $label)
                         <div class="mb-3">
+<<<<<<< HEAD
                             <label for="" class="form-label">Nama Sekolah</label>
                             <input type="text" class="form-control border-warning" wire:model="sekolah" />
                             @error('sekolah')
@@ -160,6 +164,15 @@
                         </div>
 
                         <button type="submit" class="btn btn-success rounded-pill px-4 py-2 mt-3">
+=======
+                            <label class="form-label">{{ $label }}</label>
+                            <input type="{{ $field === 'pembimbing' || $field === 'siswa' ? 'text' : 'text' }}"
+                                class="form-control" wire:model="{{ $field }}">
+                            @error($field) <small class="text-danger">{{ $message }}</small> @enderror
+                        </div>
+                        @endforeach
+                        <button type="submit" class="btn btn-success mt-2 w-100">
+>>>>>>> 3fe8eed1094be107c33c4ba6fb119374f3b2e2aa
                             <i class="fas fa-save"></i> Simpan
                         </button>
                     </form>

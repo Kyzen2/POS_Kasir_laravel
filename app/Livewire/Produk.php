@@ -36,7 +36,7 @@ class Produk extends Component
     public function simpanEdit()
     {
         $this->validate([
-            'instruktur' => ['required', 'unique:produks,kode,'.$this->produkTerpilih->id],
+            'instruktur' => ['required', 'unique:produks,instruktur,'.$this->produkTerpilih->id],
             'sekolah' => 'required',
             'pembimbing' => 'required',
             'siswa' => 'required',
@@ -57,7 +57,7 @@ class Produk extends Component
         $simpan->ket = $this->ket;
         $simpan->save();
 
-        $this->reset();
+        $this->reset('instruktur', 'sekolah', 'pembimbing', 'siswa', 'ket');
         $this->pilihanMenu = "lihat";
         session()->flash('pesan', 'Data berhasil disimpan');
     }
@@ -117,7 +117,6 @@ class Produk extends Component
     public function mount()
     {
         $this->daftarInstruktur = \App\Models\Pengguna::where('jabatan', 'pegawai')->get();
-        $this->namaInstruktur = \App\Models\Pengguna::find($this->instruktur)?->nama;
 
     }
 }

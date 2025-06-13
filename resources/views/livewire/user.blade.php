@@ -135,6 +135,7 @@
                                 <option>Pilih Peran</option>
                                 <option value="admin">Admin</option>
                                 <option value="karyawan">Karyawan</option>
+                                <option value="kasir">Karyawan</option>
                             </select>
                             @error('peran')
                             <span class="text-danger">{{ $message }}</span>
@@ -183,7 +184,11 @@
                             <select name="" id="" class="form-control border-warning" wire:model='peran'>
                                 <option>Pilih Peran</option>
                                 <option value="admin">Admin</option>
+<<<<<<< HEAD
                                 <option value="karyawan">Karyawan</option>
+=======
+                                <option value="kasir">Karyawan</option>
+>>>>>>> 3fe8eed1094be107c33c4ba6fb119374f3b2e2aa
                             </select>
                             @error('peran')
                             <span class="text-danger">{{ $message }}</span>
