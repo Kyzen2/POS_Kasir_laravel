@@ -63,7 +63,7 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped">
-                            <thead class="thead-dark">
+                            <thead class="thead-dark table-warning">
                                 <tr>
                                     <th>No</th>
                                     <th>Nama</th>
@@ -107,7 +107,7 @@
                     <form action="" wire:submit="simpan">
                         <div class="mb-3">
                             <label for="" class="form-label">Nama</label>
-                            <input type="text" class="form-control" wire:model="nama" />
+                            <input type="text" class="form-control border-warning" wire:model="nama" />
                             @error('nama')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -115,7 +115,7 @@
 
                         <div class="mb-3">
                             <label for="" class="form-label">Email</label>
-                            <input type="email" class="form-control" wire:model="email" />
+                            <input type="email" class="form-control border-warning" wire:model="email" />
                             @error('email')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -123,7 +123,7 @@
 
                         <div class="mb-3">
                             <label for="" class="form-label">Password</label>
-                            <input type="password" class="form-control" wire:model="password" />
+                            <input type="password" class="form-control border-warning" wire:model="password" />
                             @error('password')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -131,10 +131,10 @@
 
                         <div class="mb-3">
                             <label for="" class="form-label">Peran</label>
-                            <select name="" id="" class="form-control" wire:model='peran'>
+                            <select name="" id="" class="form-control border-warning" wire:model='peran'>
                                 <option>Pilih Peran</option>
                                 <option value="admin">Admin</option>
-                                <option value="kasir">Kasir</option>
+                                <option value="karyawan">Karyawan</option>
                             </select>
                             @error('peran')
                             <span class="text-danger">{{ $message }}</span>
@@ -148,15 +148,15 @@
                 </div>
             </div>
             @elseif ($pilihanMenu == 'edit')
-            <div class="card border-primary shadow-sm mb-4">
-                <div class="card-header bg-primary text-white">
+            <div class="card outline-semuauser shadow-sm mb-4">
+                <div class="card-header bg-semuauser text-white">
                     Edit Pengguna
                 </div>
                 <div class="card-body">
                     <form action="" wire:submit="simpanEdit">
                         <div class="mb-3">
                             <label for="" class="form-label">Nama</label>
-                            <input type="text" class="form-control" wire:model="nama" />
+                            <input type="text" class="form-control border-warning" wire:model="nama" />
                             @error('nama')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -164,7 +164,7 @@
 
                         <div class="mb-3">
                             <label for="" class="form-label">Email</label>
-                            <input type="email" class="form-control" wire:model="email" />
+                            <input type="email" class="form-control border-warning" wire:model="email" />
                             @error('email')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -172,7 +172,7 @@
 
                         <div class="mb-3">
                             <label for="" class="form-label">Password</label>
-                            <input type="password" class="form-control" wire:model="password" />
+                            <input type="password" class="form-control border-warning" wire:model="password" />
                             @error('password')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -180,10 +180,10 @@
 
                         <div class="mb-3">
                             <label for="" class="form-label">Peran</label>
-                            <select name="" id="" class="form-control" wire:model='peran'>
+                            <select name="" id="" class="form-control border-warning" wire:model='peran'>
                                 <option>Pilih Peran</option>
                                 <option value="admin">Admin</option>
-                                <option value="kasir">Kasir</option>
+                                <option value="karyawan">Karyawan</option>
                             </select>
                             @error('peran')
                             <span class="text-danger">{{ $message }}</span>

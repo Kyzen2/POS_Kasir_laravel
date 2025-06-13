@@ -57,7 +57,7 @@
                 <div class="card outline-transaksi shadow-sm rounded">
                     <div class="card-body">
                         <h4 class="card-title">No Invoice: <strong>{{ $transaksiAktif->kode }}</strong></h4>
-                        <input type="text" class="form-control mb-3" placeholder="Masukkan kode invoice"
+                        <input type="text" class="form-control mb-3 border-warning" placeholder="Masukkan kode invoice"
                             wire:model.live='kode'>
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover">
@@ -110,7 +110,7 @@
                 <div class="card outline-transaksi shadow-sm rounded mb-3">
                     <div class="card-body">
                         <h4 class="card-title">Bayar</h4>
-                        <input type="number" class="form-control" placeholder="Masukkan jumlah bayar" wire:model.live='bayar'>
+                        <input type="number" class="form-control border-warning" placeholder="Masukkan jumlah bayar" wire:model.live='bayar'>
                     </div>
                 </div>
 
@@ -145,7 +145,7 @@
     @if ($transaksiSelesai)
     <div class="row mt-4">
         <div class="col-12">
-            <div class="card border-primary shadow-sm rounded">
+            <div class="card outline-transaksi shadow-sm rounded">
                 <div class="card-body text-center">
                     <h4 class="card-title">Barcode Transaksi</h4>
                     <svg id="barcode"></svg>

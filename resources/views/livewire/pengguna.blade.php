@@ -60,7 +60,7 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped">
-                            <thead class="thead-dark">
+                            <thead class="thead-dark table-warning">
                                 <tr>
                                     <th>No</th>
                                     <th>Nama</th>
@@ -105,7 +105,7 @@
 
                         <div class="mb-3">
                             <label for="" class="form-label">Nama</label>
-                            <input type="text" class="form-control" wire:model="nama" />
+                            <input type="text" class="form-control border-warning" wire:model="nama" />
                             @error('nama')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -113,7 +113,7 @@
 
                         <div class="mb-3">
                             <label for="" class="form-label">NIS</label>
-                            <input type="text" class="form-control" wire:model="nis" />
+                            <input type="text" class="form-control border-warning" wire:model="nis" />
                             @error('nis')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -121,7 +121,7 @@
 
                         <div class="mb-3">
                             <label for="" class="form-label">jabatan</label>
-                            <input type="text" class="form-control" wire:model="jabatan" />
+                            <input type="text" class="form-control border-warning" wire:model="jabatan" />
                             @error('jabatan')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -134,8 +134,8 @@
                 </div>
             </div>
             @elseif ($pilihanMenu == 'edit')
-            <div class="card border-primary shadow-sm mb-4">
-                <div class="card-header bg-primary text-white">
+            <div class="card outline-semuaukaryawan shadow-sm mb-4">
+                <div class="card-header bg-semuakaryawan text-white">
                     Edit Pengguna
                 </div>
                 <div class="card-body">

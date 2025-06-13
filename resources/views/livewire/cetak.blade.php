@@ -15,9 +15,12 @@
             body * {
                 visibility: hidden;
             }
-            #laporan, #laporan * {
+
+            #laporan,
+            #laporan * {
                 visibility: visible;
             }
+
             #laporan {
                 position: absolute;
                 left: 0;
@@ -29,20 +32,52 @@
 </head>
 
 <body>
+
+    <!-- CSS Tombol Navigasi -->
+    <style>
+        .text-custom-orange-tambahlatihan {
+            color: rgb(146, 54, 0)
+        }
+
+        .text-custom-orange-semualatihan {
+            color: rgb(146, 54, 0)
+        }
+
+        .text-custom-orange-loading {
+            color: rgb(107, 43, 0)
+        }
+
+        .btn-custom-orange {
+            background-color: rgb(255, 94, 0);
+        }
+    </style>
+    <!-- --- -->
+    <!-- CSS untuk card semua karyawan -->
+    <style>
+        .outline-semuaukaryawan {
+            border: 2px solid rgb(255, 94, 0);
+        }
+
+        .bg-semuaukaryawan {
+            background-color: rgb(255, 94, 0);
+        }
+    </style>
+    <!-- --- -->
+
     <div class="container mt-4">
         <div class="row">
             <div class="col-12">
-                <div class="card border-primary">
+                <div class="card outline-semuaukaryawan shadow-sm">
                     <div class="card-body">
                         <h4 class="card-title mb-3">Laporan Transaksi</h4>
-                        
+
                         <!-- Tombol Cetak -->
                         <button class="btn btn-success mb-3" onclick="window.print()">
                             <i class="bi bi-printer"></i> Cetak
                         </button>
 
                         <table class="table table-bordered table-striped table-hover" id="laporan">
-                            <thead class="table-primary">
+                            <thead class="table-warning">
                                 <tr>
                                     <th>No</th>
                                     <th>Tanggal</th>
@@ -52,12 +87,12 @@
                             </thead>
                             <tbody>
                                 @foreach ($semuaTransaksi as $transaksi)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $transaksi->created_at->format('d-m-Y') }}</td>
-                                        <td>{{ $transaksi->kode }}</td>
-                                        <td>Rp. {{ number_format($transaksi->total, 0, ',', '.') }}</td>
-                                    </tr>
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $transaksi->created_at->format('d-m-Y') }}</td>
+                                    <td>{{ $transaksi->kode }}</td>
+                                    <td>Rp. {{ number_format($transaksi->total, 0, ',', '.') }}</td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>
