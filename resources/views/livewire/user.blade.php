@@ -134,7 +134,7 @@
                             <select name="" id="" class="form-control" wire:model='peran'>
                                 <option>Pilih Peran</option>
                                 <option value="admin">Admin</option>
-                                <option value="kasir">Kasir</option>
+                                <option value="kasir">Karyawan</option>
                             </select>
                             @error('peran')
                             <span class="text-danger">{{ $message }}</span>
@@ -183,7 +183,7 @@
                             <select name="" id="" class="form-control" wire:model='peran'>
                                 <option>Pilih Peran</option>
                                 <option value="admin">Admin</option>
-                                <option value="kasir">Kasir</option>
+                                <option value="kasir">Karyawan</option>
                             </select>
                             @error('peran')
                             <span class="text-danger">{{ $message }}</span>

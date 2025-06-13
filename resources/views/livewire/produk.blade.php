@@ -72,55 +72,28 @@
                     {{ $pilihanMenu == 'tambah' ? '➕ Tambah Pelatihan' : '✏️ Edit Produk' }}
                 </div>
                 <div class="card-body">
-                     <form wire:submit.prevent="simpan">
-
+                    <form wire:submit.prevent="{{ $pilihanMenu == 'tambah' ? 'simpan' : 'simpanEdit' }}">
                         <div class="mb-3">
                             <label for="" class="form-label">Instruktur</label>
                             <select class="form-control" wire:model="instruktur">
                                 <option value="">Pilih Pegawai</option>
                                 @foreach($daftarInstruktur as $pegawai)
-                                    <option value="{{ $pegawai->nama }}">{{ $pegawai->nama }}</option>
+                                <option value="{{ $pegawai->nama }}">{{ $pegawai->nama }}</option>
                                 @endforeach
                             </select>
                             @error('instruktur')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-
-
+                        @foreach (['sekolah' => 'Nama Sekolah', 'pembimbing' => 'Nama Pembimbing', 'siswa' => 'Jumlah Siswa', 'ket' => 'Keterangan'] as $field => $label)
                         <div class="mb-3">
-                            <label for="" class="form-label">Nama Sekolah</label>
-                            <input type="text" class="form-control" wire:model="sekolah" />
-                            @error('sekolah')
-                            <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            <label class="form-label">{{ $label }}</label>
+                            <input type="{{ $field === 'pembimbing' || $field === 'siswa' ? 'text' : 'text' }}"
+                                class="form-control" wire:model="{{ $field }}">
+                            @error($field) <small class="text-danger">{{ $message }}</small> @enderror
                         </div>
-
-                        <div class="mb-3">
-                            <label for="" class="form-label">Nama Pembimbing</label>
-                            <input type="text" class="form-control" wire:model="pembimbing" />
-                            @error('pembimbing')
-                            <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="" class="form-label">Jumlah Siswa</label>
-                            <input type="text" class="form-control" wire:model="siswa" />
-                            @error('siswa')
-                            <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="" class="form-label">Keterangan</label>
-                            <input type="text" class="form-control" wire:model="ket" />
-                            @error('ket')
-                            <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <button type="submit" class="btn btn-success rounded-pill px-4 py-2 mt-3">
+                        @endforeach
+                        <button type="submit" class="btn btn-success mt-2 w-100">
                             <i class="fas fa-save"></i> Simpan
                         </button>
                     </form>

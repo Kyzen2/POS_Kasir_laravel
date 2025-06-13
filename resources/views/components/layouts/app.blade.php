@@ -209,6 +209,12 @@
                             Pengguna
                         </a>
                         @endif
+
+                        <a href="{{ route('absen') }}" wire:navigate
+                            class="btn nav-button {{ request()->routeIs('absen') ? 'active' : '' }}">
+                            Absensi
+                        </a>
+
                         <a href="{{ route('produk') }}" wire:navigate
                             class="btn nav-button {{ request()->routeIs('produk') ? 'active' : '' }}">
                             Pelatihan
