@@ -10,6 +10,8 @@ use App\Livewire\Transaksi;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ExportController;
 use App\Livewire\Absen;
+use App\Livewire\Asset;
+use App\Livewire\Evaluasi;
 use App\Livewire\Pengguna;
 
 Route::get('/', function () {
@@ -24,7 +26,9 @@ Route::get('/pengguna', Pengguna::class)->middleware(['auth'])->name('pengguna')
 Route::get('/absen', Absen::class)->middleware(['auth'])->name('absen');
 Route::get('/laporan', Laporan::class)->middleware(['auth'])->name('laporan');
 Route::get('/produk', Produk::class)->middleware(['auth'])->name('produk');
+Route::get('/evaluasi', Evaluasi::class)->middleware(['auth'])->name('evaluasi');
 Route::get('/transaksi', Transaksi::class)->middleware(['auth'])->name('transaksi');
+Route::get('/asset', Asset::class)->middleware(['auth'])->name('asset');
 
 // Menambahkan route untuk ekspor PDF
 Route::get('/export-pdf', [ExportController::class, 'exportPdf'])->middleware(['auth'])->name('export-pdf');

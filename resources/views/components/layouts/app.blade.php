@@ -220,6 +220,11 @@
                             Pelatihan
                         </a>
 
+                        <a href="{{ route('evaluasi') }}" wire:navigate
+                            class="btn nav-button {{ request()->routeIs('evaluasi') ? 'active' : '' }}">
+                            Evaluasi
+                        </a>
+
                         <a href="{{ route('transaksi') }}" wire:navigate
                             class="btn nav-button {{ request()->routeIs('transaksi') ? 'active' : '' }}">
                             Transaksi
@@ -229,6 +234,12 @@
                             class="btn nav-button {{ request()->routeIs('laporan') ? 'active' : '' }}">
                             Laporan
                         </a>
+
+                         <a href="{{ route('asset') }}" wire:navigate
+                            class="btn nav-button {{ request()->routeIs('asset') ? 'active' : '' }}">
+                            Assets
+                        </a>
+
                     </div>
                 </div>
                 {{ $slot }}

@@ -111,12 +111,9 @@
                     {{ $pilihanMenu == 'tambah' ? '➕ Tambah Pelatihan' : '✏️ Edit Produk' }}
                 </div>
                 <div class="card-body">
-<<<<<<< HEAD
                     <form wire:submit.prevent="simpan">
 
-=======
                     <form wire:submit.prevent="{{ $pilihanMenu == 'tambah' ? 'simpan' : 'simpanEdit' }}">
->>>>>>> 3fe8eed1094be107c33c4ba6fb119374f3b2e2aa
                         <div class="mb-3">
                             <label for="" class="form-label">Instruktur</label>
                             <select class="form-control border-warning" wire:model="instruktur">
