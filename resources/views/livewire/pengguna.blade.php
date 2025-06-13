@@ -120,7 +120,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="" class="form-label">jabatan</label>
+                            <label for="" class="form-label">Jabatan</label>
                             <input type="text" class="form-control border-warning" wire:model="jabatan" />
                             @error('jabatan')
                             <span class="text-danger">{{ $message }}</span>
